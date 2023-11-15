@@ -1,0 +1,232 @@
+{
+    "banner": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Banner Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text",
+            "images": {
+                "image": {
+                    "size": "1920x840"
+                }
+            }
+        }
+    },
+
+    "breadcrumb": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Breadcrumb Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "1920x300"
+                }
+            }
+        }
+    },
+
+    "category": {
+        "builder": true,
+        "name": "Category Section",
+        "content": {
+            "heading": "text"
+        }
+    },
+
+    "choose_reason": {
+        "builder": true,
+        "name": "Why Choose Us",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        },
+        "element": {
+            "title": "text",
+            "description": "textarea",
+            "icon": "icon",
+            "modal": true
+        }
+    },
+
+    "review": {
+        "builder": true,
+        "name": "Review Section",
+        "content": {
+            "heading": "text"
+        }
+    },
+
+    "cta": {
+        "builder": true,
+        "name": "CTA Section",
+        "content": {
+            "heading": "text",
+            "subheading": "textarea"
+        },
+        "element": {
+            "title": "text",
+            "description": "textarea",
+            "icon": "icon",
+            "url": "text",
+            "button_name": "text",
+            "modal": true
+        }
+    },
+
+    "faq": {
+        "builder": true,
+        "name": "FAQ Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text",
+            "images": {
+                "image": {
+                    "size": "1920x1080"
+                }
+            }
+        },
+        "element": {
+            "question": "text",
+            "answer": "textarea-nic",
+            "modal": false
+        }
+    },
+
+    "testimonial": {
+        "builder": true,
+        "name": "Testimonial",
+        "content": {
+            "heading": "text",
+            "subheading": "text",
+            "images": {
+                "image": {
+                    "size": "1920x840"
+                }
+            }
+        },
+        "element": {
+            "name": "text",
+            "address": "text",
+            "quote": "textarea",
+            "images": {
+                "image": {
+                    "size": "300x300"
+                }
+            },
+            "modal": true
+        }
+    },
+
+    "blog": {
+        "builder": true,
+        "name": "Blog Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        },
+        "element": {
+            "images": {
+                "image": {
+                    "size": "830x460",
+                    "thumb": "415x230"
+                }
+            },
+            "title": "text",
+             "description_nic": "textarea-nic",
+            "description": "textarea",
+            "blog_icon": "icon",
+            "modal": false
+        }
+    },
+
+    "footer": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Footer",
+        "content": {
+            "heading": "text",
+            "description": "textarea"
+        }
+    },
+
+    "policy_pages": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Policy Pages",
+        "element": {
+            "title": "text",
+            "details": "textarea-nic",
+            "modal": false
+        }
+    },
+
+    "social_icon": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Social Icons",
+        "element": {
+            "title": "text",
+            "social_icon": "icon",
+            "url": "text",
+            "modal": false
+        }
+    },
+
+    "contact_us": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Contact Us",
+        "content": {
+            "title": "text"
+        },
+        "element": {
+            "title": "text",
+            "icon": "text",
+            "content": "text",
+            "modal": true
+        }
+    },
+
+    "register": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Register Section",
+        "content": {
+            "heading": "text",
+            "images": {
+                "image": {
+                    "size": "1920x1280"
+                }
+            }
+        }
+    },
+
+    "login": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Login",
+        "content": {
+            "greeting": "text",
+            "heading": "text",
+            "images": {
+                "image": {
+                    "size": "1920x1080"
+                }
+            }
+        }
+    },
+
+
+    "company_list_section": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Company List Section",
+        "content": {
+            "title": "text",
+            "button_name": "text",
+            "button_url": "text"
+        }
+    }
+}
