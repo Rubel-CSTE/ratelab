@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\Auth\LoginController;
 
 Route::get('/clear', function () {
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -61,3 +62,13 @@ Route::controller('SiteController')->group(function () {
     Route::get('/{slug}', 'pages')->name('pages');
     Route::get('/', 'index')->name('home');
 });
+
+
+Route::get('/auth/google', [LoginController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
+Route::get('/auth/facebook', [LoginController::class, 'redirectToFacebook'])->name('facebook.redirect');
+Route::get('/auth/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+
+Route::get('/auth/apple', [LoginController::class, 'redirectToApple'])->name('apple.redirect');
+Route::get('/auth/apple/callback', [LoginController::class, 'handleAppleCallback']);

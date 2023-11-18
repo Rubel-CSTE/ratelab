@@ -63,10 +63,12 @@ $content = getContent('company_list_section.content', true);
                                 @for ($i = 5; $i >= 1; $i--)
                                     <div class="form-check custom--radio d-flex justify-content-between align-items-center">
                                         <div class="left">
-                                            <input class="form-check-input" value="{{ $i }}" type="radio"
-                                                name="rating_filter" id="ratings-{{ $i }}">
+                                            <input class="form-check-input" value="{{ $i }}" type="radio" name="rating_filter" id="ratings-{{ $i }}">
+                                            @php
+                                                $colorCode = getStarColor($i);
+                                            @endphp
                                             <label class="form-check-label" for="ratings-{{ $i }}">
-                                                {{ $i }} <span class="text--base">
+                                                {{ $i }} <span style="color: {{ $colorCode }}" class="{{ $colorCode === null ? 'text--base' : '' }}">
 
                                                     @for ($star = 1; $star <= $i; $star++)
                                                         <i class="las la-star"></i>
@@ -284,9 +286,7 @@ $content = getContent('company_list_section.content', true);
                     method: 'GET',
                     data: data,
                     success: function(response) {
-                        $('#showCompanies').html(response)
-                        $(".countResult").removeClass('d-none') //
-
+                        $('#showCompanies').html(response);
                     },
                 });
             }

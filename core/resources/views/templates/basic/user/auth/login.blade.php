@@ -13,7 +13,12 @@
         }
 
         .btn-facebook {
-            background-color: #3b5998; /* Facebook blue color */
+            background-color: #3b5998;
+            color: #fff;
+            border: none;
+        }
+        .btn-apple {
+            background-color: #000000;
             color: #fff;
             border: none;
         }
@@ -38,14 +43,19 @@
             </div>
             <div class="middle w-100 mt-5">
                 
-                <!-- Google Register Button -->
-                <a href="{{ url('login/google') }}" class="btn w-100 btn-block btn-google mb-3">
-                    <i class="fab fa-google"></i> Register with Google
+                <!-- Google Login Button -->
+                <a href="{{ route('google.redirect') }}" class="btn w-100 btn-block btn-google mb-3">
+                    <i class="fab fa-google"></i> {{ __('Login with Google') }}
                 </a>
     
-                <!-- Facebook Register Button -->
-                <a href="{{ url('login/facebook') }}" class="btn w-100 btn-block btn-facebook mb-3">
-                    <i class="fab fa-facebook-f"></i> Register with Facebook
+                <!-- Facebook Login Button -->
+                <a href="{{ route('facebook.redirect') }}" class="btn w-100 btn-block btn-facebook mb-3">
+                    <i class="fab fa-facebook-f"></i> {{ __('Login with Facebook') }}
+                </a>
+
+                <!-- Apple Login Button -->
+                <a href="{{ route('apple.redirect') }}" class="btn w-100 btn-block btn-apple mb-3">
+                    <i class="fab fa-apple"></i> {{ __('Login with Apple') }}
                 </a>
         
                 <form class="account-form verify-gcaptcha" method="POST" action="{{ route('user.login') }}">

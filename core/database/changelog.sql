@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `provider` VARCHAR(255) NULL DEFAULT NULL AFTER `email`, ADD `provider_id` VARCHAR(255) NULL DEFAULT NULL AFTER `provider`;

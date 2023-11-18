@@ -168,6 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -192,7 +193,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Status'=>App\Constants\Status::class
+        'Status'=>App\Constants\Status::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ])->toArray(),
 
 ];

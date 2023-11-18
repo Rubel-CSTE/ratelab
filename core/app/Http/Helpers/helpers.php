@@ -465,7 +465,24 @@ function avgRating($comAvgRating)
     }
 }
 
-
+if (!function_exists('getStarColor')) {
+    function getStarColor($avgRating)
+    {
+        if ($avgRating > 4) {
+            return '#00B67A'; // Deep Green
+        } elseif ($avgRating > 3 && $avgRating <= 4) {
+            return '#73CF11'; // Light Green
+        } elseif ($avgRating > 2 && $avgRating <= 3) {
+            return '#FF8622'; // Deep Yellow
+        } elseif ($avgRating > 1 && $avgRating <= 2) {
+            return '#FFCE00'; // Light Yellow
+        } elseif ($avgRating > 0 && $avgRating <= 1) {
+            return '#FF3722'; // Deep Red
+        } else {
+            return null;
+        }
+    }
+}
 
 
 function getAdvertisement($size)

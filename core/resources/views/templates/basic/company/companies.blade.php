@@ -1,7 +1,3 @@
-<div class="d-none countResult">
-    {{ $companies->total() }} @lang(' items found')
-</div>
-
 @php
     $adShowAfterColum = 4;
 @endphp
@@ -31,7 +27,10 @@
                             </h6>
                             <p class="cate-name fs--14px"><i class="las la-certificate"></i> {{ __($company->category->name) }}</p>
                         </div>
-                        <div class="text-right text--base">
+                        @php
+                            $colorCode = getStarColor($company->avg_rating);
+                        @endphp
+                        <div style="color: {{ $colorCode }}" class="text-right {{ $colorCode === null ? 'text--base' : '' }}">
                             @php echo avgRating($company->avg_rating); @endphp
                             <p class="fs--14px text-muted"> &nbsp; {{ $company->avg_rating }}
                                 ({{ @$company->reviews_count }}
@@ -65,13 +64,40 @@
     @endif
 
 @empty
-    <div class="review-block">
-        <div class="customer-reviewdd">
-            <div class="d-flex justify-content-center">
-                <h5> {{ __($emptyMessage) }}</h5>
+<style>
+.company-review:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+</style>
+<div class="container" style="background-color: ">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card rounded company-review">
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">{{ __('Can not find a company?') }}</h2>
+                        <p class="card-text">{{ __('They might not be listed on ' . @$general->site_name . ' yet. Add them and be the first to write a review!') }}</p>
+                    </div>
+                    <div class="">
+                        <form class="">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="www.example.com" type="text" aria-invalid="false" data-domain-input="true" value="">
+                                <div class="input-group-append">
+                                    <a href="{{ route('user.company.create') }}" class="btn btn--base" type="submit">
+                                        <span class="">{{ __('Start') }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 @endforelse
 <div class="mt-3">
     <ul class="pagination justify-content-end">

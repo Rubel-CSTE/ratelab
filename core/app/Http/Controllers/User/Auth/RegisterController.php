@@ -74,12 +74,12 @@ class RegisterController extends Controller
         $countries = implode(',',array_column($countryData, 'country'));
         $validate = Validator::make($data, [
             'email' => 'required|string|email|unique:users',
-            'mobile' => 'required|regex:/^([0-9]*)$/',
+            // 'mobile' => 'required|regex:/^([0-9]*)$/',
             'password' => ['required','confirmed',$passwordValidation],
             'username' => 'required|unique:users|min:6',
             'captcha' => 'sometimes|required',
-            'mobile_code' => 'required|in:'.$mobileCodes,
-            'country_code' => 'required|in:'.$countryCodes,
+            // 'mobile_code' => 'required|in:'.$mobileCodes,
+            // 'country_code' => 'required|in:'.$countryCodes,
             'country' => 'required|in:'.$countries,
             'agree' => $agree
         ]);
@@ -136,8 +136,8 @@ class RegisterController extends Controller
         $user->email = strtolower(trim($data['email']));
         $user->password = Hash::make($data['password']);
         $user->username = trim($data['username']);
-        $user->country_code = $data['country_code'];
-        $user->mobile = $data['mobile_code'].$data['mobile'];
+        // $user->country_code = $data['country_code'];
+        // $user->mobile = $data['mobile_code'].$data['mobile'];
         $user->address = [
             'address' => '',
             'state' => '',
@@ -145,8 +145,10 @@ class RegisterController extends Controller
             'country' => isset($data['country']) ? $data['country'] : null,
             'city' => ''
         ];
-        $user->ev = $general->ev ? Status::NO : Status::YES;
-        $user->sv = $general->sv ? Status::NO : Status::YES;
+        // $user->ev = $general->ev ? Status::NO : Status::YES;
+        // $user->sv = $general->sv ? Status::NO : Status::YES;
+        $user->ev = Status::YES;
+        $user->sv = Status::YES;
         $user->save();
 
 

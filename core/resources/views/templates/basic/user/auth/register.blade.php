@@ -1,5 +1,24 @@
 @extends($activeTemplate . 'layouts.master')
 @section('content')
+
+<style>
+    .btn-google {
+        background-color: #dd4b39;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-facebook {
+        background-color: #3b5998;
+        color: #fff;
+        border: none;
+    }
+    .btn-apple {
+        background-color: #000000;
+        color: #fff;
+        border: none;
+    }
+</style>
     @php
         $regContent = getContent('register.content', true);
         $policyPages = getContent('policy_pages.element', false, null, true);
@@ -23,6 +42,35 @@
             </div>
 
             <div class="middle w-100">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <!-- Google Register Button -->
+                            <a href="{{ route('google.redirect') }}" class="btn w-100 btn-block btn-google mb-3">
+                                <i class="fab fa-google"></i> {{ __('Register with Google') }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <!-- Facebook Register Button -->
+                            <a href="{{ route('facebook.redirect') }}" class="btn w-100 btn-block btn-facebook mb-3">
+                                <i class="fab fa-facebook-f"></i> {{ __('Register with Facebook') }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <!-- Apple Register Button -->
+                            <a href="{{ route('apple.redirect') }}" class="btn w-100 btn-block btn-apple mb-3">
+                                <i class="fab fa-apple"></i> {{ __('Register with Apple') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <form action="{{ route('user.register') }}" method="POST" class="account-form verify-gcaptcha">
                     @csrf
                     <div class="row">
@@ -72,7 +120,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>@lang('Mobile')</label>
                                 <div class="input-group ">
@@ -86,7 +134,7 @@
                                 </div>
                                 <small class="text-danger mobileExist"></small>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-6">
                             <div class="form-group">
