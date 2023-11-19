@@ -15,7 +15,10 @@
                     <span><i class="la la-map-marker-alt"></i>{{ __(@$myReview->user->address->country) }}</span>
                 </div>
                 <div class="right">
-                    <div class="ratings d-flex align-items-center justify-content-end">
+                    @php
+                        $colorCode = getStarColor($myReview->rating);
+                    @endphp
+                    <div style="color: {{ $colorCode }}" class="{{ $colorCode === null ? 'ratings' : '' }} d-flex align-items-center justify-content-end">
                         @php
                             echo rating(@$myReview->rating);
                         @endphp

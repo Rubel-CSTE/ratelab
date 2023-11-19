@@ -35,7 +35,10 @@ $reviews = App\Models\Review::with('user', 'company')
                                 </p>
                             </div>
                         </div>
-                        <div class="review-card__ratings text--base">
+                        @php
+                            $colorCode = getStarColor($review->rating);
+                        @endphp
+                        <div style="color: {{ $colorCode }}" class="review-card__ratings {{ $colorCode === null ? 'text--base' : '' }}">
                             @php
                                 echo rating($review->rating);
                             @endphp

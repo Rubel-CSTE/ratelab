@@ -47,7 +47,10 @@ $content = getContent('breadcrumb.content', true);
                                 <div class="rating-area d-flex flex-wrap align-items-center justify-content-between mb-4">
                                     <div class="rating">{{ showAmount(@$company->avg_rating) }}</div>
                                     <div class="content">
-                                        <div class="ratings d-flex align-items-center justify-content-end fs--18px">
+                                        @php
+                                            $colorCode = getStarColor($company->avg_rating);
+                                        @endphp
+                                        <div style="color: {{ $colorCode }}" class="{{ $colorCode === null ? 'ratings' : '' }} d-flex align-items-center justify-content-end fs--18px">
                                             @php
                                                 echo avgRating($company->avg_rating);
                                             @endphp
@@ -145,8 +148,7 @@ $content = getContent('breadcrumb.content', true);
                                     <div class='give-rating'>
                                         @for ($i = 5; $i >= 1; $i--)
                                             <span>
-                                                <input id='str{{ $i }}' name='rating' type='radio'
-                                                    value='{{ $i }}'>
+                                                <input id='str{{ $i }}' name='rating' type='radio' value='{{ $i }}'>
                                                 <label for='str{{ $i }}'><i class="la la-star fa-sm"></i></label>
                                             </span>
                                         @endfor

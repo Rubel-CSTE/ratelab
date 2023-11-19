@@ -42,34 +42,20 @@
             </div>
 
             <div class="middle w-100">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <!-- Google Register Button -->
-                            <a href="{{ route('google.redirect') }}" class="btn w-100 btn-block btn-google mb-3">
-                                <i class="fab fa-google"></i> {{ __('Register with Google') }}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
+                <!-- Google Register Button -->
+                <a href="{{ route('google.redirect') }}" class="btn w-100 btn-block btn-google mb-3">
+                    <i class="fab fa-google"></i> {{ __('Register with Google') }}
+                </a>
+    
+                <!-- Facebook Register Button -->
+                <a href="{{ route('facebook.redirect') }}" class="btn w-100 btn-block btn-facebook mb-3">
+                    <i class="fab fa-facebook-f"></i> {{ __('Register with Facebook') }}
+                </a>
 
-                            <!-- Facebook Register Button -->
-                            <a href="{{ route('facebook.redirect') }}" class="btn w-100 btn-block btn-facebook mb-3">
-                                <i class="fab fa-facebook-f"></i> {{ __('Register with Facebook') }}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-
-                            <!-- Apple Register Button -->
-                            <a href="{{ route('apple.redirect') }}" class="btn w-100 btn-block btn-apple mb-3">
-                                <i class="fab fa-apple"></i> {{ __('Register with Apple') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Apple Register Button -->
+                <a href="{{ route('apple.redirect') }}" class="btn w-100 btn-block btn-apple mb-3">
+                    <i class="fab fa-apple"></i> {{ __('Register with Apple') }}
+                </a>
 
                 <form action="{{ route('user.register') }}" method="POST" class="account-form verify-gcaptcha">
                     @csrf
