@@ -30,7 +30,9 @@ $content = getContent('company_list_section.content', true);
                                     <li class="sidebar-category__single active">
                                         <a href="javascript:void(0)" class="category" data-id="0">
                                             <span class="caption fw-bold">@lang('All')</span>
-                                            <span class="value">{{ $companies->total() }}</span>
+                                            @auth('admin')
+                                                <span class="value">{{ $companies->total() }}</span>
+                                            @endauth
                                         </a>
                                     </li>
 
@@ -39,7 +41,9 @@ $content = getContent('company_list_section.content', true);
                                             <a href="javascript:void(0)" class="category"
                                                 data-id="{{ $category->id }}">
                                                 <span class="caption">{{ __($category->name) }}</span>
-                                                <span class="value">{{ $category->company->where('status',1)->count() }}</span>
+                                                @auth('admin')
+                                                    <span class="value">{{ $category->company->where('status',1)->count() }}</span>
+                                                @endauth
                                             </a>
                                         </li>
                                     @endforeach

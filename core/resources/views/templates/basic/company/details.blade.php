@@ -87,15 +87,6 @@ $content = getContent('breadcrumb.content', true);
                                     <p class="mt-2"> {{ __(@$company->description) }} </p>
                                 </div>
                                 <div class="single-company-info">
-                                    <h5 class="single-company-info__title">@lang('Tags')</h5>
-                                    <div class=" mt-3">
-                                        @foreach (@$company->tags as $tag)
-                                            {{ $tag }}
-                                            @if (!$loop->last),@endif
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="single-company-info">
                                     <h5 class="single-company-info__title">@lang('Contact Info')</h5>
                                     <ul class="single-company-info__list">
                                         <li>

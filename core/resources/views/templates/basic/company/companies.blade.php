@@ -28,8 +28,7 @@
                         @php
                             $colorCode = getStarColor($company->avg_rating);
                         @endphp
-                        <div style="color: {{ $colorCode }}"
-                            class="text-right {{ $colorCode === null ? 'text--base' : '' }}">
+                        <div style="color: {{ $colorCode }}" class="text-right {{ $colorCode === null ? 'text--base' : '' }}">
                             @php echo avgRating($company->avg_rating); @endphp
                             <p class="fs--14px text-muted"> &nbsp; {{ $company->avg_rating }}
                                 ({{ @$company->reviews_count }}
@@ -79,14 +78,14 @@
                         <div class="card-body">
                             <div>
                                 <h2 class="card-title">{{ __('Can not find a company?') }}</h2>
-                                <p class="card-text">{{ __('They might not be listed on ' . @$general->site_name . ' yet. Add them and be the first to write a review!') }}</p>
+                                <p class="card-text mt-3">{{ __('They might not be listed on ' . @$general->site_name . ' yet. Add them and be the first to write a review!') }}</p>
                             </div>
                             <div class="">
                                 <form class="">
                                     <div class="input-group">
-                                        <input class="form--control" placeholder="www.example.com" type="text" aria-invalid="false" data-domain-input="true" value="">
+                                        <input class="form--control" placeholder="{{ url('/') }}" type="text" aria-invalid="false" data-domain-input="true" value="">
                                         <div class="input-group-append">
-                                            <a href="{{ route('user.company.create') }}" class="btn btn--base"
+                                            <a href="{{ route('user.login') }}" class="btn btn--base"
                                                 type="submit">
                                                 <span class="">{{ __('Start') }}</span>
                                             </a>
@@ -104,12 +103,12 @@
         <!-- Content here -->
         <div class="container company-review">
             <div id="no-results" class="alert alert-light mt-3" role="alert">
-                <h6>{{ __('No matching companies found.') }}</h6>
+                <h6>{{ __('Can not find a company?') }}</h6>
+                <p class="card-text mt-3">{{ __('They might not be listed on ' . @$general->site_name . ' yet. Add them and be the first to write a review!') }}</p>
                 <div class="form-group mt-3">
                     <label for="email-input">{{ __('Please enter your email to register') }}:</label>
                     <div class="custom-icon-field">
-                        <i class="las la-envelope"></i>
-                        <input type="email" name="email" value="" autocomplete="off" class="form--control" placeholder="Email address">
+                        <input type="email" name="email" value="" autocomplete="off" class="form--control" placeholder="{{ url('/') }}">
                     </div>
                 </div>
                 <a href="{{ route('user.register') }}" id="registration-btn" class="btn btn--base w-100">{{ __('Register') }}</a>
